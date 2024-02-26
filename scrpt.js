@@ -2,7 +2,6 @@ const itemsWrapper = document.querySelector(".items-wrapper");
 const up = document.querySelector(".up");
 const down = document.querySelector(".down");
 
-up.classList.add("hide");
 
 let counterImg = 0;
 
@@ -15,6 +14,7 @@ const images = [
   'img/05.webp',
 ]
 
+up.classList.add("hide");
 //Ciclo immagine
 for(let i = 0; i < images.length; i++){
   const img = images[i];
@@ -33,7 +33,7 @@ up.addEventListener('click', function(){
   itemsCollection[counterImg--].classList.add("hide");
   itemsCollection[counterImg].classList.remove("hide");
 
-  if(counterImg === 0){
+  if(counterImg == 0){
     up.classList.add("hide");
   }
 })
@@ -41,9 +41,10 @@ up.addEventListener('click', function(){
 down.addEventListener('click', function(){
   up.classList.remove("hide");  
   itemsCollection[counterImg++].classList.add("hide");
-  if(counterImg === 4){
+  itemsCollection[counterImg].classList.remove("hide");
+  if(counterImg == images.length - 1){
     down.classList.add('hide')
   }  
-  itemsCollection[counterImg].classList.remove("hide");
 
 })
+console.log (counterImg, images)
