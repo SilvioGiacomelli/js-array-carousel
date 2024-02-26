@@ -24,26 +24,26 @@ for(let i = 0; i < images.length; i++){
 const itemsCollection = document.getElementsByClassName("img");
 
 //Rimuovo la classe hide al primo elemento
-itemsCollection[0].classList.remove("hide");
+itemsCollection[counterImg].classList.remove("hide");
 
 //
 up.addEventListener('click', function(){
+  down.classList.remove("hide");
+
   itemsCollection[counterImg--].classList.add("hide");
   itemsCollection[counterImg].classList.remove("hide");
 
   if(counterImg === 0){
     up.classList.add("hide");
   }
-  down.classList.remove("hide");
 })
 //
 down.addEventListener('click', function(){
   up.classList.remove("hide");  
   itemsCollection[counterImg++].classList.add("hide");
-  itemsCollection[counterImg].classList.remove("hide");
-  
-  if(counterImg === images.lenght - 1){
-    down.classList.add("hide");
+  if(counterImg === 4){
+    down.classList.add('hide')
   }  
+  itemsCollection[counterImg].classList.remove("hide");
 
 })
